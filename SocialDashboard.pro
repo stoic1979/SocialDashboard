@@ -13,8 +13,10 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+           mainwindow.cpp\
+           qfilelogger.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h\
+            qfilelogger.cpp
 
 FORMS    += mainwindow.ui
