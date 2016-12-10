@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui webenginewidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -17,6 +17,6 @@ SOURCES += main.cpp\
            qfilelogger.cpp
 
 HEADERS  += mainwindow.h\
-            qfilelogger.cpp
+            qfilelogger.h\
 
 FORMS    += mainwindow.ui

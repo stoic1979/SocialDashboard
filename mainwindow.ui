@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>561</width>
-    <height>417</height>
+    <width>953</width>
+    <height>513</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>70</y>
+      <x>20</x>
+      <y>10</y>
       <width>59</width>
       <height>14</height>
      </rect>
@@ -30,8 +30,8 @@
    <widget class="QTextEdit" name="teUsername">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>100</y>
+      <x>10</x>
+      <y>40</y>
       <width>191</width>
       <height>41</height>
      </rect>
@@ -40,8 +40,8 @@
    <widget class="QTextEdit" name="tePassword">
     <property name="geometry">
      <rect>
-      <x>160</x>
-      <y>160</y>
+      <x>10</x>
+      <y>100</y>
       <width>191</width>
       <height>41</height>
      </rect>
@@ -50,8 +50,8 @@
    <widget class="QPushButton" name="btnLogin">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>240</y>
+      <x>120</x>
+      <y>180</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -60,13 +60,23 @@
      <string>Login</string>
     </property>
    </widget>
+   <widget class="QWidget" name="browserWidget" native="true">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>20</y>
+      <width>471</width>
+      <height>421</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>561</width>
+     <width>953</width>
      <height>19</height>
     </rect>
    </property>

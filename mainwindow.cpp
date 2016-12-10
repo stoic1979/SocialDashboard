@@ -1,8 +1,10 @@
 #include <QDebug>
+#include <QWebEngineView>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qfilelogger.h"
+
 
 using namespace logger;
 
@@ -18,6 +20,10 @@ MainWindow::MainWindow(QWidget *parent) :
     QFileLogger::Instance()->Warning("warning");
     QFileLogger::Instance()->Critical("critical");
     QFileLogger::Instance()->Error("error");
+
+    QWebEngineView *view = new QWebEngineView(ui->browserWidget);
+    view->load(QUrl("http://qt-project.org/"));
+    view->show();
 }
 
 MainWindow::~MainWindow()
