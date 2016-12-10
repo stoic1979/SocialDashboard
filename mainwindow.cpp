@@ -1,3 +1,5 @@
+#include <QDebug>
+
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "qfilelogger.h"
@@ -21,4 +23,10 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::on_btnLogin_clicked()
+{
+    qDebug() << "Username: " << ui->teUsername->toPlainText();
+    qDebug() << "Password: " << ui->tePassword->toPlainText();
 }
