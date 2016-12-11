@@ -65,7 +65,10 @@ public:
     static Facebook* Instance();
 
     void GetFacebookAccessToken(QUrl url);
+    void GetFacebookUserId();
+
     void ParseLoginResponse(QString jsonStr);
+    void ParseUserIdResponse(QString jsonStr);
 
     //-----------------------------------------------
     //  Getters
@@ -86,8 +89,10 @@ public:
 signals:
     void GotFacebookAccessToken(bool error, QString jsonStr);
 
+
 public slots:   
     void ReplyForAccessToken(QNetworkReply *reply);
+    void ReplyForUserId(QNetworkReply *reply);
 
 private:
     /**
