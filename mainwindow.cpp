@@ -27,7 +27,9 @@ MainWindow::MainWindow(QWidget *parent) :
     QFileLogger::Instance()->Error("error");
 
 
-    fbWebView = new FacebookWebView(ui->browserWidget, settings.FacebookClientId(), settings.FacebookClientSecret());
+    facebook = Facebook::InitializeFacebook(settings.FacebookClientId(), settings.FacebookClientSecret());
+
+    fbWebView = new FacebookWebView(ui->browserWidget);
 
 
     connect(fbWebView, SIGNAL(GotFacebookAccessToken(bool, QString)),
@@ -64,20 +66,7 @@ void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
     }
 
 
-    QJsonDocument document = QJsonDocument::fromJson(jsonStr.toLatin1());
-        if (!document.isObject()) {
-            qDebug() << "ERROR:: Document is not an object";
-            return ;
-        }
-        QJsonObject object = document.object();
-        QJsonValue jsonValue = object.value("access_token");
-        if (jsonValue.isUndefined()) {
-            qDebug() << "Key access_token does not exist";
-        }
 
-        QString accessToken = jsonValue.toString();
-
-        qDebug () << "---> acces_token: " << accessToken;
 
 
 

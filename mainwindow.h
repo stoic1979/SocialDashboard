@@ -6,7 +6,10 @@
 
 #include "httpclient.h"
 #include "settings.h"
+#include "facebook.h"
 #include "facebookwebview.h"
+
+using namespace nsFacebook;
 
 namespace Ui {
 class MainWindow;
@@ -25,13 +28,11 @@ private slots:
     void GotFacebookAccessToken(bool error, QString jsonStr);
 
 private:
-    Ui::MainWindow *ui;
-
-    FacebookWebView *fbWebView;
-
-    HttpClient httpClient;
-
-    Settings settings;
+    Ui::MainWindow          *ui;
+    FacebookWebView         *fbWebView;
+    Facebook                *facebook;
+    HttpClient               httpClient;
+    Settings                 settings;
 };
 
 #endif // MAINWINDOW_H
