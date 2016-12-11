@@ -24,6 +24,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QFileLogger::Instance()->Critical("critical");
     QFileLogger::Instance()->Error("error");
 
+
+
+    connect(&httpClient, SIGNAL(GotFacebookAccessToken(bool, QString)),
+            this, SLOT( GotFacebookAccessToken(bool, QString) )
+                        );
+
+
     /*
 
     -----------------------------------------------------------------------------------------------
@@ -109,4 +116,9 @@ void MainWindow::webViewUrlChanged(const QUrl& url) {
 
 
 
+}
+
+
+void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
+    qDebug() << "[MainWindow] GotFacebookAccessToken :: " << jsonStr;
 }

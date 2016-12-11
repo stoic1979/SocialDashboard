@@ -22,6 +22,7 @@ private slots:
     void on_btnLogin_clicked();
 
     void webViewUrlChanged(const QUrl& url);
+    void GotFacebookAccessToken(bool error, QString jsonStr);
 
 private:
     Ui::MainWindow *ui;

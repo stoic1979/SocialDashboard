@@ -72,6 +72,8 @@ void HttpClient::replyFinished(QNetworkReply *reply) {
     int HttpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     qDebug() << "[HttpClient] HttpStatusCode: " << HttpStatusCode;
 
+    emit GotFacebookAccessToken(reply->error(), reply->readAll());
+
     if (reply->error() == QNetworkReply::NoError) {
             qDebug() << "[HttpClient] replyFinished() Success: \n got content:-\n" << reply->readAll();
             delete reply;
