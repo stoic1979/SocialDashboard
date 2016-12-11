@@ -78,6 +78,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
     webView->show();
 
+    statusBar()->showMessage(tr("Ready"));
 
 }
 
@@ -90,6 +91,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnLogin_clicked()
 {
 
+    statusBar()->showMessage(tr("Logging to facebook"));
 
     QString fbOAuthUrl   = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + settings.FacebookClientId() + QString("&redirect_uri=") + fbSuccessUrl;
     qDebug() << "QAuth Url: " << fbOAuthUrl;
@@ -110,12 +112,16 @@ void MainWindow::webViewUrlChanged(const QUrl& url) {
         qDebug() << "----- code: " << code;
 
 
+        statusBar()->showMessage(tr("Authenticating with facebook"));
+
         QString accessToekUrl = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=" +  settings.FacebookClientId() +
                 QString("&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=" + settings.FacebookClientSecret() +"&code=") + code;
 
         qDebug() << "----- accessToekUrl: " << accessToekUrl;
 
         httpClient.GetFacebookAccessToken(accessToekUrl);
+
+        statusBar()->showMessage(tr("Login Done !"));
 
     }
 
@@ -149,5 +155,7 @@ void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
         QString accessToken = jsonValue.toString();
 
         qDebug () << "---> acces_token: " << accessToken;
+
+
 
 }
