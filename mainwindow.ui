@@ -18,31 +18,21 @@
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>10</y>
-      <width>59</width>
-      <height>14</height>
+      <y>270</y>
+      <width>121</width>
+      <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Login</string>
+     <string>Client Secret</string>
     </property>
    </widget>
-   <widget class="QTextEdit" name="teUsername">
+   <widget class="QTextEdit" name="teFbClientSecret">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>191</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="tePassword">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>100</y>
-      <width>191</width>
+      <x>20</x>
+      <y>290</y>
+      <width>211</width>
       <height>41</height>
      </rect>
     </property>
@@ -50,8 +40,8 @@
    <widget class="QPushButton" name="btnLogin">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>180</y>
+      <x>150</x>
+      <y>380</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -73,8 +63,8 @@
    <widget class="QTextEdit" name="teFbClientId">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>270</y>
+      <x>20</x>
+      <y>200</y>
       <width>221</width>
       <height>51</height>
      </rect>
@@ -83,8 +73,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>240</y>
+      <x>20</x>
+      <y>170</y>
       <width>59</width>
       <height>14</height>
      </rect>

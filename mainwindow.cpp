@@ -1,5 +1,5 @@
 #include <QDebug>
-
+#include <QUrlQuery>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -7,6 +7,9 @@
 
 
 using namespace logger;
+
+// fix me later
+QString fbSuccessUrl = "https://www.facebook.com/connect/login_success.html";
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -57,6 +60,11 @@ MainWindow::MainWindow(QWidget *parent) :
      */
 
     webView = new QWebEngineView(ui->browserWidget);
+
+    connect(webView, SIGNAL( urlChanged(const QUrl&) ),
+            this,    SLOT  ( webViewUrlChanged(const QUrl&) )
+            );
+
     webView->show();
 
 
@@ -70,15 +78,35 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnLogin_clicked()
 {
-    qDebug() << "Username: " << ui->teUsername->toPlainText();
-    qDebug() << "Password: " << ui->tePassword->toPlainText();
 
-
-    QString fbSuccessUrl = "https://www.facebook.com/connect/login_success.html";
     QString fbOAuthUrl   = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + ui->teFbClientId->toPlainText() + QString("&redirect_uri=") + fbSuccessUrl;
     qDebug() << "QAuth Url: " << fbOAuthUrl;
 
     webView->load(QUrl(fbOAuthUrl));
+
+}
+
+void MainWindow::webViewUrlChanged(const QUrl& url) {
+    qDebug() << "Url Changed: " << url;
+
+    if(url.toString().startsWith(fbSuccessUrl)) {
+        qDebug() << "----- getting code ------";
+        qDebug() << "----- query" << url.query();
+
+        QUrlQuery query(url);
+        QString code = query.queryItemValue("code");
+        qDebug() << "----- code: " << code;
+
+
+        QString accessToekUrl = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=" +  ui->teFbClientId->toPlainText() +
+                QString("&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=" + ui->teFbClientSecret->toPlainText()  +"&code=") + code;
+
+        qDebug() << "----- accessToekUrl: " << accessToekUrl;
+
+        httpClient.GetFacebookAccessToken(accessToekUrl);
+
+    }
+
 
 
 }

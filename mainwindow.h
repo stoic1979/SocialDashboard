@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QWebEngineView>
 
+#include "httpclient.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,10 +21,14 @@ public:
 private slots:
     void on_btnLogin_clicked();
 
+    void webViewUrlChanged(const QUrl& url);
+
 private:
     Ui::MainWindow *ui;
 
     QWebEngineView *webView;
+
+    HttpClient httpClient;
 };
 
 #endif // MAINWINDOW_H
