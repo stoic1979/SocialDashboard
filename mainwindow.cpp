@@ -126,6 +126,13 @@ void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
     qDebug() << "[MainWindow] GotFacebookAccessToken :: " << jsonStr;
 
 
+    //FIXME - check error and work accordingly, http code and tidy up !!!!
+    if(error) {
+        qDebug() << "[MainWindow] got error in getting facebook token";
+        retrun;
+    }
+
+
     QJsonDocument document = QJsonDocument::fromJson(jsonStr.toLatin1());
         if (!document.isObject()) {
             qDebug() << "ERROR:: Document is not an object";
