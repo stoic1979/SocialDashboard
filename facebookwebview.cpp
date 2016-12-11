@@ -81,6 +81,8 @@ void FacebookWebView::ReplyFinished(QNetworkReply *reply) {
 
     if (reply->error() == QNetworkReply::NoError) {
         respData = reply->readAll();
+
+        Facebook::Instance()->ParseLoginResponse(respData);
     }
     else {
         error = true;

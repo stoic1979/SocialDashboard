@@ -63,9 +63,9 @@ void Facebook::ParseLoginResponse(QString jsonStr) {
         qDebug() << "Key access_token does not exist";
     }
 
-    QString accessToken = jsonValue.toString();
+    accessToken = jsonValue.toString();
 
-    qDebug () << "---> acces_token: " << accessToken;
+    qDebug () << "[Facebook] acces_token: " << accessToken;
 }
 
 void Facebook::SetAccessCode(QString code){

@@ -46,7 +46,7 @@ public:
      *
      * @param clientId        Client Id of facebook app
      * @param clientSecret    Client Secret of facebook app
-     * @return Initialized and returns an object of facebook singleton
+     * @return                An Initialized object of facebook singleton
      */
     static Facebook* InitializeFacebook(QString clientId, QString clientSecret);
 
@@ -95,7 +95,6 @@ private:
      */
     explicit Facebook(QString clientId, QString clientSecret, QObject *parent = 0);
 
-
 private:
     QString clientId;
     QString clientSecret;
@@ -105,7 +104,6 @@ private:
     QString accessTokenUrl;\
     QString oauthUrl;
 };
-
 
 //--------------------------------------------------
 // Convenience MACRO wrapper functions/shoortcuts
@@ -117,9 +115,7 @@ private:
 #define FB_ACCESS_TOKEN_URL         Facebook::Instance()->AccessTokenUrl()
 #define FB_ACCESS_TOKEN             Facebook::Instance()->AccessToken()
 #define FB_SUCCESS_URL              QString("https://www.facebook.com/connect/login_success.html")
-
+#define FB                          Facebook::Instance()
 }// nsFacebook
 
 #endif // FACEBOOK_H
-
-
