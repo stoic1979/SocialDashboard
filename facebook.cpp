@@ -162,12 +162,20 @@ void Facebook::ParseUserIdResponse(QString jsonStr) {
     QJsonObject object = document.object();
     QJsonValue jsonValue = object.value("id");
     if (jsonValue.isUndefined()) {
-        qDebug() << "Key access_token does not exist";
+        qDebug() << "Key user id does not exist";
     }
 
     userId = jsonValue.toString();
 
+    jsonValue = object.value("name");
+        if (jsonValue.isUndefined()) {
+            qDebug() << "Key user name does not exist";
+        }
+
+        userName = jsonValue.toString();
+
     qDebug () << "[Facebook] ParseUserIdResponse() :: userId: " << userId;
+    qDebug () << "[Facebook] ParseUserIdResponse() :: userName: " << userName;
 }
 
 void Facebook::SetAccessCode(QString code){
@@ -208,4 +216,8 @@ QUrl Facebook::AccessTokenUrl() {
 
 QString Facebook::UserId() {
     return userId;
+}
+
+QString Facebook::Username() {
+    return userName;
 }
