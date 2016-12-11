@@ -1,5 +1,8 @@
 #include <QDebug>
 #include <QUrlQuery>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonValue>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -121,4 +124,21 @@ void MainWindow::webViewUrlChanged(const QUrl& url) {
 
 void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
     qDebug() << "[MainWindow] GotFacebookAccessToken :: " << jsonStr;
+
+
+    QJsonDocument document = QJsonDocument::fromJson(jsonStr.toLatin1());
+        if (!document.isObject()) {
+            qDebug() << "ERROR:: Document is not an object";
+            return ;
+        }
+        QJsonObject object = document.object();
+        QJsonValue jsonValue = object.value("access_token");
+        if (jsonValue.isUndefined()) {
+            qDebug() << "Key access_token does not exist";
+        }
+
+        QString accessToken = jsonValue.toString();
+
+        qDebug () << "---> acces_token: " << accessToken;
+
 }
