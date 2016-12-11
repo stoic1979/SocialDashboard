@@ -15,10 +15,12 @@ TEMPLATE = app
 SOURCES += main.cpp\
            mainwindow.cpp\
            qfilelogger.cpp\
-           httpclient.cpp
+           httpclient.cpp \
+    settings.cpp
 
 HEADERS  += mainwindow.h\
             qfilelogger.h\
-            httpclient.h
+            httpclient.h \
+    settings.h
 
 FORMS    += mainwindow.ui

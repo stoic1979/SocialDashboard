@@ -5,6 +5,7 @@
 #include <QWebEngineView>
 
 #include "httpclient.h"
+#include "settings.h"
 
 namespace Ui {
 class MainWindow;
@@ -30,6 +31,8 @@ private:
     QWebEngineView *webView;
 
     HttpClient httpClient;
+
+    Settings settings;
 };
 
 #endif // MAINWINDOW_H

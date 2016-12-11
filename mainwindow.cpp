@@ -3,6 +3,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonValue>
+#include <QSettings>
 
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
@@ -89,7 +90,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_btnLogin_clicked()
 {
 
-    QString fbOAuthUrl   = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + ui->teFbClientId->toPlainText() + QString("&redirect_uri=") + fbSuccessUrl;
+
+    QString fbOAuthUrl   = "https://www.facebook.com/v2.8/dialog/oauth?client_id=" + settings.FacebookClientId() + QString("&redirect_uri=") + fbSuccessUrl;
     qDebug() << "QAuth Url: " << fbOAuthUrl;
 
     webView->load(QUrl(fbOAuthUrl));
@@ -108,8 +110,8 @@ void MainWindow::webViewUrlChanged(const QUrl& url) {
         qDebug() << "----- code: " << code;
 
 
-        QString accessToekUrl = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=" +  ui->teFbClientId->toPlainText() +
-                QString("&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=" + ui->teFbClientSecret->toPlainText()  +"&code=") + code;
+        QString accessToekUrl = "https://graph.facebook.com/v2.8/oauth/access_token?client_id=" +  settings.FacebookClientId() +
+                QString("&redirect_uri=https://www.facebook.com/connect/login_success.html&client_secret=" + settings.FacebookClientSecret() +"&code=") + code;
 
         qDebug() << "----- accessToekUrl: " << accessToekUrl;
 
