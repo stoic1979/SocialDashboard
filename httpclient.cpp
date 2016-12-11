@@ -6,13 +6,11 @@
 #include <QNetworkRequest>
 #include <QUrlQuery>
 
-HttpClient::HttpClient(QString url, QObject *parent): QObject(parent), url(url) {}
+HttpClient::HttpClient(QObject *parent): QObject(parent) {}
 
 
 void HttpClient::TestGetRequest() {
     qDebug() << "[HttpClient] test get request";
-
-    bool status = true;
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
     connect(manager, SIGNAL(finished(QNetworkReply*)),
@@ -22,6 +20,19 @@ void HttpClient::TestGetRequest() {
     QNetworkRequest request;
     request.setUrl(QUrl("http://www.google.com")); // test URL for google
     request.setRawHeader("User-Agent", "MyOwnBrowser 1.0");
+
+    manager->get(request);
+}
+
+void HttpClient::GetFacebookAccessToken(QString accessTokenUrl) {
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(replyFinished(QNetworkReply*)));
+
+    // creating get request
+    QNetworkRequest request;
+    request.setUrl(QUrl(accessTokenUrl));
+    request.setRawHeader("User-Agent", "Some-Browser 1.0");
 
     manager->get(request);
 }
@@ -36,7 +47,7 @@ void HttpClient::SendPostRequest(QMap<QString, QString> &params) {
 
     QNetworkAccessManager *manager = new QNetworkAccessManager(this);
 
-    QNetworkRequest request(url);
+    QNetworkRequest request(QUrl("http://test-url.com"));
     request.setRawHeader("User-Agent", "MyOwnBrowser 1.0");
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/x-www-form-urlencoded");
 

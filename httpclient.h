@@ -14,16 +14,18 @@ class HttpClient: public QObject
 {
     Q_OBJECT
 public:
-    HttpClient(QString url, QObject *parent=0);
+    HttpClient(QObject *parent=0);
 
     void TestGetRequest();
+
+    void GetFacebookAccessToken(QString accessTokenUrl);
+
     void SendPostRequest(QMap<QString, QString> &params);
 
 public slots:
     void replyFinished(QNetworkReply *reply);
 
-private:
-    QString url;
+
 };
 
 #endif // HTTPCLIENT_H
