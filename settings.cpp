@@ -9,5 +9,5 @@ QString Settings::FacebookClientId() {
 }
 
 QString Settings::FacebookClientSecret() {
-    return settings.value("client_secret").toString();
+    return value("client_secret").toString();
 }
