@@ -17,12 +17,14 @@ SOURCES += main.cpp\
            qfilelogger.cpp\
            httpclient.cpp \
     settings.cpp \
-    facebookwebview.cpp
+    facebookwebview.cpp \
+    facebook.cpp
 
 HEADERS  += mainwindow.h\
             qfilelogger.h\
             httpclient.h \
     settings.h \
-    facebookwebview.h
+    facebookwebview.h \
+    facebook.h
 
 FORMS    += mainwindow.ui
