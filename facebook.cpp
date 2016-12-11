@@ -143,3 +143,6 @@ QUrl Facebook::AccessTokenUrl() {
     return QUrl(accessTokenUrl);
 }
 
+QString Facebook::UserId() {
+    return userId;
+}

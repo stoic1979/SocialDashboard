@@ -75,6 +75,7 @@ public:
     QString AccessToken();
     QUrl OAuthUrl();
     QUrl AccessTokenUrl();
+    QString UserId();
 
     //-----------------------------------------------
     //  Setters
@@ -107,6 +108,8 @@ private:
     QString accessCode;
     QString accessTokenUrl;\
     QString oauthUrl;
+
+    QString userId;
 };
 
 //--------------------------------------------------
@@ -120,6 +123,7 @@ private:
 #define FB_ACCESS_TOKEN             Facebook::Instance()->AccessToken()
 #define FB_SUCCESS_URL              QString("https://www.facebook.com/connect/login_success.html")
 #define FB                          Facebook::Instance()
+#define FB_USER_ID                  Facebook::Instance()->UserId()
 }// nsFacebook
 
 #endif // FACEBOOK_H
