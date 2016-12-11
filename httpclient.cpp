@@ -24,18 +24,7 @@ void HttpClient::TestGetRequest() {
     manager->get(request);
 }
 
-void HttpClient::GetFacebookAccessToken(QString accessTokenUrl) {
-    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
-    connect(manager, SIGNAL(finished(QNetworkReply*)),
-            this, SLOT(replyFinished(QNetworkReply*)));
 
-    // creating get request
-    QNetworkRequest request;
-    request.setUrl(QUrl(accessTokenUrl));
-    request.setRawHeader("User-Agent", "Some-Browser 1.0");
-
-    manager->get(request);
-}
 
 /**
  * @brief HttpClient::SendPostRequest
@@ -72,7 +61,6 @@ void HttpClient::replyFinished(QNetworkReply *reply) {
     int HttpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
     qDebug() << "[HttpClient] HttpStatusCode: " << HttpStatusCode;
 
-    emit GotFacebookAccessToken(reply->error(), reply->readAll());
 
     if (reply->error() == QNetworkReply::NoError) {
             qDebug() << "[HttpClient] replyFinished() Success: \n got content:-\n" << reply->readAll();

@@ -22,9 +22,6 @@ public:
 
     void SendPostRequest(QMap<QString, QString> &params);
 
- signals:
-    void GotFacebookAccessToken(bool error, QString jsonStr);
-
 public slots:
     void replyFinished(QNetworkReply *reply);
 
