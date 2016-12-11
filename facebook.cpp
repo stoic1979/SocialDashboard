@@ -22,7 +22,6 @@
  *  ------------------------------------------------------------------------------
  */
 
-
 #include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>

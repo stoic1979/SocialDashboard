@@ -33,7 +33,6 @@
 
 #include "qfilelogger.h"
 
-
 using namespace logger;
 
 
@@ -50,17 +49,13 @@ MainWindow::MainWindow(QWidget *parent) :
     QFileLogger::Instance()->Critical("critical");
     QFileLogger::Instance()->Error("error");
 
-
-    facebook = Facebook::InitializeFacebook(settings.FacebookClientId(), settings.FacebookClientSecret());
-
+    facebook  = Facebook::InitializeFacebook(settings.FacebookClientId(), settings.FacebookClientSecret());
     fbWebView = new FacebookWebView(ui->browserWidget);
 
 
     connect(fbWebView, SIGNAL(GotFacebookAccessToken(bool, QString)),
             this, SLOT( GotFacebookAccessToken(bool, QString) )
                         );
-
-
 
     statusBar()->showMessage(tr("Ready"));
 }
@@ -73,25 +68,17 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_btnLogin_clicked()
 {
-
     statusBar()->showMessage(tr("Logging to facebook"));
     fbWebView->LoginAndGetAccessToken();
-
 }
 
 void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
     qDebug() << "[MainWindow] GotFacebookAccessToken :: " << jsonStr;
-
 
     //FIXME - check error and work accordingly, http code and tidy up !!!!
     if(error) {
         qDebug() << "[MainWindow] got error in getting facebook token";
         return;
     }
-
-
-
-
-
 
 }

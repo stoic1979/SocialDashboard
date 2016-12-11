@@ -78,12 +78,11 @@ public:
     void SetAccessCode(QString code);
     void SetAccessToken(QString accessToken);
 
-
-
 signals:
+// pass
 
 public slots:
-
+// pass
 
 private:
     /**
@@ -118,6 +117,7 @@ private:
 #define FB_ACCESS_TOKEN_URL         Facebook::Instance()->AccessTokenUrl()
 #define FB_ACCESS_TOKEN             Facebook::Instance()->AccessToken()
 #define FB_SUCCESS_URL              QString("https://www.facebook.com/connect/login_success.html")
+
 }// nsFacebook
 
 #endif // FACEBOOK_H
