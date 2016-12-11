@@ -49,7 +49,7 @@ MainWindow::MainWindow(QWidget *parent) :
     QFileLogger::Instance()->Critical("critical");
     QFileLogger::Instance()->Error("error");
 
-    facebook  = Facebook::InitializeFacebook(settings.FacebookClientId(), settings.FacebookClientSecret());
+    facebook  = Facebook::Initialize(settings.FacebookClientId(), settings.FacebookClientSecret());
     fbWebView = new FacebookWebView(ui->browserWidget);
 
 
