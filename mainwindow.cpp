@@ -129,7 +129,7 @@ void MainWindow::GotFacebookAccessToken(bool error, QString jsonStr) {
     //FIXME - check error and work accordingly, http code and tidy up !!!!
     if(error) {
         qDebug() << "[MainWindow] got error in getting facebook token";
-        retrun;
+        return;
     }
 
 
