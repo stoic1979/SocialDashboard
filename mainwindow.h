@@ -28,6 +28,8 @@ private slots:
 private:
     Ui::MainWindow *ui;
 
+
+
     QWebEngineView *webView;
 
     HttpClient httpClient;
