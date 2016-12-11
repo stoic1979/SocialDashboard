@@ -53,7 +53,7 @@ MainWindow::MainWindow(QWidget *parent) :
     fbWebView = new FacebookWebView(ui->browserWidget);
 
 
-    connect(fbWebView, SIGNAL(GotFacebookAccessToken(bool, QString)),
+    connect(FB, SIGNAL(GotFacebookAccessToken(bool, QString)),
             this, SLOT( GotFacebookAccessToken(bool, QString) )
                         );
 

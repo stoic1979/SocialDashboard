@@ -51,6 +51,45 @@ Facebook* Facebook::Instance() {
     return instance;
 }
 
+void Facebook::GetFacebookAccessToken(QUrl url) {
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(ReplyForAccessToken(QNetworkReply*)));
+
+    // creating get request
+    QNetworkRequest request;
+    request.setUrl(url);
+    request.setRawHeader("User-Agent", "Some-Browser 1.0");
+
+    manager->get(request);
+}
+
+void Facebook::ReplyForAccessToken(QNetworkReply *reply) {
+    qDebug() << "[FacebookWebView] got network reply";
+
+    // Getting the http status code
+    int HttpStatusCode = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
+    qDebug() << "[FacebookWebView] HttpStatusCode: " << HttpStatusCode;
+
+    bool error = false;
+    QString respData;
+
+    if (reply->error() == QNetworkReply::NoError) {
+        respData = reply->readAll();
+
+        Facebook::Instance()->ParseLoginResponse(respData);
+    }
+    else {
+        error = true;
+        respData = reply->errorString();
+        qDebug() << "[FacebookWebView] reply content:-\n" << reply->readAll();
+
+    }
+    delete reply;
+
+    emit GotFacebookAccessToken(error, respData);
+}
+
 void Facebook::ParseLoginResponse(QString jsonStr) {
     QJsonDocument document = QJsonDocument::fromJson(jsonStr.toLatin1());
     if (!document.isObject()) {

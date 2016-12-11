@@ -80,15 +80,13 @@ public:
 
     void LoginAndGetAccessToken();
 
-signals:
-   void GotFacebookAccessToken(bool error, QString jsonStr);
+
 
 private:
-    void GetFacebookAccessToken(QUrl url);
+    //pass
 
 private slots:
     void WebViewUrlChanged(const QUrl& url);
-    void ReplyFinished(QNetworkReply *reply);
 
 private:
     // pass

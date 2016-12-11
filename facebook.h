@@ -28,6 +28,9 @@
 #include <QObject>
 #include <QUrl>
 
+#include <QNetworkRequest>
+#include <QNetworkReply>
+
 namespace nsFacebook {
 
 /**
@@ -61,6 +64,7 @@ public:
      */
     static Facebook* Instance();
 
+    void GetFacebookAccessToken(QUrl url);
     void ParseLoginResponse(QString jsonStr);
 
     //-----------------------------------------------
@@ -79,10 +83,10 @@ public:
     void SetAccessToken(QString accessToken);
 
 signals:
-// pass
+    void GotFacebookAccessToken(bool error, QString jsonStr);
 
-public slots:
-// pass
+public slots:   
+    void ReplyForAccessToken(QNetworkReply *reply);
 
 private:
     /**
