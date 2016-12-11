@@ -14,73 +14,34 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>270</y>
-      <width>121</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Client Secret</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="teFbClientSecret">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>290</y>
-      <width>211</width>
-      <height>41</height>
-     </rect>
-    </property>
-   </widget>
    <widget class="QPushButton" name="btnLogin">
     <property name="geometry">
      <rect>
-      <x>150</x>
-      <y>380</y>
-      <width>80</width>
-      <height>22</height>
+      <x>420</x>
+      <y>570</y>
+      <width>231</width>
+      <height>31</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
     <property name="text">
-     <string>Login</string>
+     <string>LOGIN</string>
     </property>
    </widget>
    <widget class="QWidget" name="browserWidget" native="true">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>20</x>
       <y>20</y>
-      <width>811</width>
-      <height>591</height>
+      <width>1051</width>
+      <height>531</height>
      </rect>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="teFbClientId">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>200</y>
-      <width>221</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>20</x>
-      <y>170</y>
-      <width>59</width>
-      <height>14</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Client Id</string>
     </property>
    </widget>
   </widget>
