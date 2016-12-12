@@ -178,6 +178,12 @@ void Facebook::ParseUserIdResponse(QString jsonStr) {
     qDebug () << "[Facebook] ParseUserIdResponse() :: userName: " << userName;
 }
 
+void Facebook::GetFriendList() {
+    qDebug () << "[Facebook] Getting Friend List...";
+
+
+}
+
 void Facebook::SetAccessCode(QString code){
 
     accessCode = code;

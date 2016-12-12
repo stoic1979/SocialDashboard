@@ -66,6 +66,7 @@ public:
 
     void GetAccessToken(QUrl url);
     void GetUserId();
+    void GetFriendList();
 
     void ParseLoginResponse(QString jsonStr);
     void ParseUserIdResponse(QString jsonStr);
