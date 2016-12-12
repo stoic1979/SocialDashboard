@@ -181,6 +181,22 @@ void Facebook::ParseUserIdResponse(QString jsonStr) {
 void Facebook::GetFriendList() {
     qDebug () << "[Facebook] Getting Friend List...";
 
+    QNetworkAccessManager *manager = new QNetworkAccessManager(this);
+    connect(manager, SIGNAL(finished(QNetworkReply*)),
+            this, SLOT(ReplyForFriendList(QNetworkReply*)));
+
+    QString str = QString("https://graph.facebook.com/me?access_token=%1").arg(accessToken);
+
+    // creating get request
+    QNetworkRequest request;
+    request.setUrl(QUrl(str));
+    request.setRawHeader("User-Agent", "Some-Browser 1.0");
+
+    manager->get(request);
+
+}
+
+void Facebook:ReplyForFriendList(QNetworkReply* reply) {
 
 }
 
