@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 //-----------------------------------------------
-//  Genral Constants
+//  General Constants
 //-----------------------------------------------
 #define USER_AGENT "SocialDashboard-Browser"
 

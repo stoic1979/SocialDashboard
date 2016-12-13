@@ -28,6 +28,7 @@
 #include <QJsonValue>
 
 #include "facebook.h"
+#include "constants.h"
 
 using namespace nsFacebook;
 
@@ -59,7 +60,7 @@ void Facebook::GetAccessToken(QUrl url) {
     // creating get request
     QNetworkRequest request;
     request.setUrl(url);
-    request.setRawHeader("User-Agent", "Some-Browser 1.0");
+    request.setRawHeader("User-Agent", USER_AGENT);
 
     manager->get(request);
 }
@@ -74,7 +75,7 @@ void Facebook::GetUserId() {
     // creating get request
     QNetworkRequest request;
     request.setUrl(QUrl(str));
-    request.setRawHeader("User-Agent", "Some-Browser 1.0");
+    request.setRawHeader("User-Agent", USER_AGENT);
 
     manager->get(request);
 }
@@ -193,7 +194,7 @@ void Facebook::GetFriendList() {
     // creating get request
     QNetworkRequest request;
     request.setUrl(QUrl(str));
-    request.setRawHeader("User-Agent", "Some-Browser 1.0");
+    request.setRawHeader("User-Agent", USER_AGENT);
 
     manager->get(request);
 

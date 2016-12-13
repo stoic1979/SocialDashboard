@@ -46,6 +46,7 @@ HEADERS  += mainwindow.h\
             httpclient.h \
             settings.h \
             facebookwebview.h \
-            facebook.h
+            facebook.h \
+    constants.h
 
 FORMS    += mainwindow.ui
