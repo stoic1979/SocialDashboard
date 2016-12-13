@@ -188,7 +188,7 @@ void Facebook::GetFriendList() {
     connect(manager, SIGNAL(finished(QNetworkReply*)),
             this, SLOT(ReplyForFriendList(QNetworkReply*)));
 
-    QString str = QString("https://graph.facebook.com/me?access_token=%1").arg(accessToken);
+    QString str = QString("https://graph.facebook.com/me/friends?access_token=%1").arg(accessToken);
 
     // creating get request
     QNetworkRequest request;
