@@ -199,8 +199,8 @@ void Facebook::GetFriendList() {
 
 }
 
-void Facebook:ReplyForFriendList(QNetworkReply* reply) {
-
+void Facebook::ReplyForFriendList(QNetworkReply* reply) {
+    qDebug() << "[Facebook] got reply for friend list: " << reply->readAll();
 }
 
 void Facebook::SetAccessCode(QString code){
