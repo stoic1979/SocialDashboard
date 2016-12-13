@@ -93,6 +93,9 @@ void Facebook::ReplyForUserId(QNetworkReply *reply) {
         respData = reply->readAll();
 
         ParseUserIdResponse(respData);
+
+        // after we have user id, lets get the friend list
+        GetFriendList();
     }
     else {
         error = true;
