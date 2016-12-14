@@ -24,12 +24,23 @@
 
 #include "mainwindow.h"
 #include <QApplication>
+#include <QPixmap>
+#include <QSplashScreen>
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
+
+    QPixmap pixmap(":images/splash.png");
+    QSplashScreen splash(pixmap);
+    splash.show();
+    splash.showMessage("Loading Please Wait...");
+    app.processEvents();
+
+
     MainWindow w;
     w.show();
+    splash.hide();
 
-    return a.exec();
+    return app.exec();
 }
