@@ -24,7 +24,8 @@
 
 #include "settings.h"
 
-Settings::Settings() : QSettings("config.ini", QSettings::IniFormat)
+Settings::Settings():
+    QSettings("config.ini", QSettings::IniFormat)
 {}
 
 QString Settings::FacebookClientId() {

@@ -30,7 +30,8 @@
 #include <QNetworkRequest>
 #include <QUrlQuery>
 
-HttpClient::HttpClient(QObject *parent): QObject(parent) {}
+HttpClient::HttpClient(QObject *parent):
+    QObject(parent) {}
 
 
 void HttpClient::TestGetRequest() {

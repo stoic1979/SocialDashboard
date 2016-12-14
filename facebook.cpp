@@ -35,7 +35,9 @@ using namespace nsFacebook;
 static Facebook *instance;
 
 Facebook::Facebook(QString clientId, QString clientSecret, QObject *parent):
-    QObject(parent), clientId(clientId), clientSecret(clientSecret)
+    QObject(parent),
+    clientId(clientId),
+    clientSecret(clientSecret)
 {
     oauthUrl = QString("https://www.facebook.com/v2.8/dialog/oauth?client_id=%1&redirect_uri=%2").
             arg(clientId).arg(FB_SUCCESS_URL);
