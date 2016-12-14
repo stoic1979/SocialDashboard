@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1085</width>
-    <height>661</height>
+    <width>1182</width>
+    <height>668</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,9 +39,32 @@
      <rect>
       <x>20</x>
       <y>20</y>
-      <width>1051</width>
+      <width>881</width>
       <height>531</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>900</x>
+      <y>260</y>
+      <width>281</width>
+      <height>271</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>30</y>
+      <width>241</width>
+      <height>191</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
     </property>
    </widget>
   </widget>
@@ -50,7 +73,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1085</width>
+     <width>1182</width>
      <height>19</height>
     </rect>
    </property>

@@ -47,6 +47,9 @@ HEADERS  += mainwindow.h\
             settings.h \
             facebookwebview.h \
             facebook.h \
-    constants.h
+            constants.h
 
 FORMS    += mainwindow.ui
+
+RESOURCES += \
+    images.qrc

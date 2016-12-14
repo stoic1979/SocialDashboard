@@ -32,6 +32,9 @@
  */
 
 #include "qfilelogger.h"
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsPixmapItem>
 
 using namespace logger;
 
@@ -55,9 +58,20 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(FB, SIGNAL(GotFacebookAccessToken(bool, QString)),
             this, SLOT( GotFacebookAccessToken(bool, QString) )
-                        );
+            );
 
     statusBar()->showMessage(tr("Ready"));
+
+
+    //-----------------------------------------------------
+    // UI tests with images
+    //-----------------------------------------------------
+    QGraphicsScene scene;
+    QGraphicsPixmapItem item(QPixmap(":/images/info.png"));
+    scene.addItem(&item);
+    ui->graphicsView->setScene(&scene);
+    ui->label->setPixmap(QPixmap(":/images/info.png"));
+    //-----------------------------------------------------
 }
 
 MainWindow::~MainWindow()
