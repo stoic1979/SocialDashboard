@@ -122,7 +122,7 @@ private:
 };
 
 //--------------------------------------------------
-// Convenience MACRO wrapper functions/shoortcuts
+// Convenience MACRO wrapper functions/shortcuts
 //--------------------------------------------------
 #define FB_CLIENT_ID                Facebook::Instance()->ClientId()
 #define FB_CLIENT_SECRET            Facebook::Instance()->ClientSecret()
