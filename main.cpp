@@ -31,15 +31,19 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
 
+    // showing splash
     QPixmap pixmap(":images/splash.png");
     QSplashScreen splash(pixmap);
     splash.show();
     splash.showMessage("Loading Please Wait...");
+
     app.processEvents();
 
-
+    // showing main window
     MainWindow w;
     w.show();
+
+    // hiding splash
     splash.hide();
 
     return app.exec();
